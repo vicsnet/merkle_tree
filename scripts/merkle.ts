@@ -122,9 +122,11 @@ const tre = await StandardMerkleTree.load(JSON.parse(fs.readFileSync("trees.json
 // }
 // }
 const helpers = require("@nomicfoundation/hardhat-network-helpers");
-
+// 0x866b1515AcF7e82C8389a65823A6Ca8bB525A0bA
 await helpers.impersonateAccount("0x866b1515AcF7e82C8389a65823A6Ca8bB525A0bA");
+await helpers.setBalance("0x866b1515AcF7e82C8389a65823A6Ca8bB525A0bA", ethers.utils.parseEther("5"))
 const impersonatedSigner:any = await ethers.getSigner("0x866b1515AcF7e82C8389a65823A6Ca8bB525A0bA");
+
 const A = impersonatedSigner.address;
 
 
@@ -132,12 +134,13 @@ const A = impersonatedSigner.address;
 
 
 function getproof(Addr:any){
-    for (const [i, v] of tre.entries()){
+    for (const [i, v] of tre.entries()){     
         if (v[0] === Addr){
             const proof = tre.getProof(i)
             
             const proofvalue = [proof, v[1]]
-            // console.log(proofvalue)
+            console.log("proof",proof)
+
             return proofvalue;
         }
         else{
@@ -163,6 +166,10 @@ console.log(claimAirdrop);
 const bal = await airdropdeploy.balanceOf(impersonatedSigner.address);
 
 console.log("balance2", bal)
+
+
+const bal2 = await airdropdeploy.balanceOf(impersonatedSigner.address);
+console.log(bal2);
 //   const proof = poo;
 
 
