@@ -146,6 +146,7 @@ function getproof(Addr:any){
         else{
             console.log("wrong address")
         }
+        break;
     }
 }
 
