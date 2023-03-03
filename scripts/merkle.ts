@@ -143,10 +143,7 @@ function getproof(Addr:any){
 
             return proofvalue;
         }
-        else{
-            console.log("wrong address")
-        }
-        break;
+        
     }
 }
 
