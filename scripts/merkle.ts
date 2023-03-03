@@ -167,19 +167,11 @@ const bal = await airdropdeploy.balanceOf(impersonatedSigner.address);
 
 console.log("balance2", bal)
 
+await airdropdeploy.connect(impersonatedSigner).checkValidity(val[0], val[1]);
 
 const bal2 = await airdropdeploy.balanceOf(impersonatedSigner.address);
 console.log(bal2);
-//   const proof = poo;
 
-
-// console.log(address);
-// let hashedAddress:any = keccak256(address);
-// let proof = tre.getProof(address);
-
-// console.log(proof);
-// let proof = tre.getProof(address);
-// let a:any = keccak256(proof)
 
 
 
